@@ -16,8 +16,11 @@ export default function DogSearch(props) {
 
   function search() {
     let apiUrl = `https://dog.ceo/api/breed/${breed}/images`;
-    console.log(apiUrl);
+    console.log("url", apiUrl);
     axios.get(apiUrl).then(handleResponse);
+
+    // let response = await axios.get(apiUrl);
+    // handleResponse(response);
   }
 
   function handleBreedChange(event) {
@@ -25,11 +28,13 @@ export default function DogSearch(props) {
   }
 
   function handleResponse(response) {
+    console.log("response", response);
     setResults(response.data);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+    search();
   }
 
   if (loaded) {
@@ -49,7 +54,7 @@ export default function DogSearch(props) {
             </button>
           </form>
         </section>
-        <Results results={results} />
+        <Results results={results} breed={breed} />
       </div>
     );
   } else {
