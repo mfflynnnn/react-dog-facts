@@ -1,12 +1,15 @@
 import "./App.css";
-import Search from "./Search.js";
+import DogSearch from "./DogSearch.js";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <div className="container">
-        <header className="App-header">Hello from App!</header>
-        <Search />
+        <header className="App-header">
+          <h1>Cute Dogs</h1>
+          <h2>Cute pictures of cute {props.results} being cute</h2>
+        </header>
+        <DogSearch defaultBreed="boxer" />
       </div>
     </div>
   );
