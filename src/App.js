@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import DogSearch from "./DogSearch.js";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <header className="App-header">
+          <h1>Cute Dogs</h1>
+          <h2>Cute pictures of cute {props.breed}s being cute</h2>
+        </header>
+        <DogSearch defaultBreed="boxer" />
+      </div>
     </div>
   );
 }
